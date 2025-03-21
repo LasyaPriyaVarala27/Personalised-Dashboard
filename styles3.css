@@ -1,0 +1,367 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://images.pexels.com/photos/7130537/pexels-photo-7130537.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: #333;
+    transition: background 0.3s;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.background-changer select {
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+.todo {
+    grid-column: 1 / 2;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.todo-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.todo input {
+    padding: 10px;
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.todo button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#todo-list {
+    list-style: none;
+    padding: 0;
+}
+
+#todo-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.2s;
+}
+
+#todo-list li:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+#todo-list li.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.gallery {
+    grid-column: 2 / 3;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-container {
+    position: relative;
+    display: inline-block;
+}
+
+#gallery-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+#gallery-image:hover {
+    transform: scale(1.02);
+}
+
+.gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.gallery-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+#prev-btn {
+    left: 10px;
+}
+
+#next-btn {
+    right: 10px;
+}
+
+.calendar {
+    grid-column: 3 / 4;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.calendar-header button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-grid .day {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.calendar-grid div:not(.day) {
+    text-align: center;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background 0.2s;
+}
+
+.calendar-grid div.current-day {
+    background: #6a11cb;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-grid div:not(.day):hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.main-content {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.calculator-container {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.right-features {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.glass-btn {
+    background: linear-gradient(135deg, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.timer-display {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+#timer {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: #6a11cb;
+}
+
+.expense-inputs, .fitness-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.expense-list div {
+    padding: 12px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+}
+
+.total-display {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+}
+
+.bottom-section {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+.notes-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 15px;
+    height: auto;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-container h3 {
+    margin: 0 0 10px 0;
+    color: #6a11cb;
+    font-size: 1.2em;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(106, 17, 203, 0.1);
+}
+
+#notes {
+    width: 100%;
+    height: calc(100% - 30px);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1em;
+    line-height: 1.4;
+    background: transparent;
+    resize: none;
+    flex-grow: 1;
+}
+
+#notes::placeholder {
+    color: #999;
+}
+
+#notes:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.2);
+}
+.calculator-display-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.centered-display {
+    width: 90%;
+    padding: 15px;
+    font-size: 1.5em;
+    text-align: right;
+    border: 2px solid rgba(106, 17, 203, 0.1);
+    border-radius: 8px;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calculator-buttons button {
+    padding: 20px;
+    font-size: 18px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}

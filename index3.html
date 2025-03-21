@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dashboard</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Dashboard</h1>
+            <div class="background-changer">
+                <label for="background-select">Change Background:</label>
+                <select id="background-select">
+                    <option value="https://images.pexels.com/photos/7130537/pexels-photo-7130537.jpeg">Girly Pink</option>
+                    <option value="https://static.vecteezy.com/system/resources/thumbnails/013/466/123/small_2x/abstract-background-electric-dashboard-connection-futuristic-technology-graphic-design-illustration-vector.jpg">city skylights</option>
+                    <option value="https://static.vecteezy.com/system/resources/thumbnails/010/825/984/small_2x/technology-background-modern-abstract-luxury-geometric-shape-premium-wallpaper-for-template-backdrop-brochure-poster-website-or-banner-free-vector.jpg">Rainbow</option>
+                </select>
+            </div>
+        </header>
+
+        <section class="todo">
+            <h2>To-Do List</h2>
+            <div class="todo-input-container">
+                <input type="text" id="todo-input" placeholder="Add a new task">
+                <button id="add-todo">Add</button>
+            </div>
+            <ul id="todo-list"></ul>
+        </section>
+
+        <section class="gallery">
+            <h2>Motivational Quotes</h2>
+            <div class="gallery-container">
+                <button id="prev-btn" class="gallery-btn"><</button>
+                <img id="gallery-image" src="https://hips.hearstapps.com/hmg-prod/images/monday-motivation-martin-luther-king-jr-66612936d9297.png?crop=1.00xw:0.667xh;0,0.176xh&resize=980:*" alt="Gallery Image">
+                <button id="next-btn" class="gallery-btn">></button>
+            </div>
+        </section>
+
+        <section class="calendar">
+            <h2>Calendar</h2>
+            <div class="calendar-header">
+                <button id="prev-month"><</button>
+                <span id="current-month-year"></span>
+                <button id="next-month">></button>
+            </div>
+            <div class="calendar-grid"></div>
+        </section>
+
+        <div class="main-content">
+            <div class="calculator-container">
+                <div class="calculator">
+                    <h2>Calculator</h2>
+                    <div class="calculator-display-container">
+                        <input type="text" id="calc-display" disabled class="centered-display">
+                    </div>
+                    <div class="calculator-buttons">
+                        <button onclick="appendToDisplay('7')">7</button>
+                        <button onclick="appendToDisplay('8')">8</button>
+                        <button onclick="appendToDisplay('9')">9</button>
+                        <button onclick="appendToDisplay('/')">/</button>
+                        <button onclick="appendToDisplay('4')">4</button>
+                        <button onclick="appendToDisplay('5')">5</button>
+                        <button onclick="appendToDisplay('6')">6</button>
+                        <button onclick="appendToDisplay('*')">*</button>
+                        <button onclick="appendToDisplay('1')">1</button>
+                        <button onclick="appendToDisplay('2')">2</button>
+                        <button onclick="appendToDisplay('3')">3</button>
+                        <button onclick="appendToDisplay('-')">-</button>
+                        <button onclick="appendToDisplay('0')">0</button>
+                        <button onclick="appendToDisplay('.')">.</button>
+                        <button onclick="calculate()">=</button>
+                        <button onclick="appendToDisplay('+')">+</button>
+                        <button onclick="clearDisplay()">C</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-features">
+                <div class="feature-card pomodoro-timer">
+                    <h2>Pomodoro Timer</h2>
+                    <div class="timer-display">
+                        <span id="timer">25:00</span>
+                    </div>
+                    <div class="timer-controls">
+                        <button id="start-timer" class="glass-btn">Start</button>
+                        <button id="reset-timer" class="glass-btn">Reset</button>
+                    </div>
+                </div>
+
+                <div class="feature-card fitness-tracker">
+                    <h2>Fitness Tracker</h2>
+                    <div class="fitness-inputs">
+                        <input type="number" id="workout-time" placeholder="Minutes">
+                        <button id="calculate-calories" class="glass-btn">Calculate</button>
+                    </div>
+                    <div class="calories-display">
+                        <p>Calories Burnt: <span id="calories-burnt">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="feature-card expense-tracker">
+                <h2>Expense Tracker</h2>
+                <div class="expense-inputs">
+                    <input type="text" id="expense-name" placeholder="Name">
+                    <input type="number" id="expense-amount" placeholder="Amount">
+                    <button id="add-expense" class="glass-btn">Add</button>
+                </div>
+                <div id="expense-list" class="expense-list"></div>
+                <div class="total-display">
+                    <p>Total: $<span id="total-expenses">0</span></p>
+                </div>
+            </div>
+
+            <div class="notes-container">
+                <h3>Quick Notes</h3>
+                <textarea id="notes" placeholder="Write your notes here..."></textarea>
+            </div>
+        </div>
+    </div>
+    <script src="script3.js"></script>
+</body>
+</html>
